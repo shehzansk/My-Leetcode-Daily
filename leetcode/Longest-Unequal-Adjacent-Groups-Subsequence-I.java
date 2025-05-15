@@ -8,15 +8,13 @@ class Solution {
         } 
 
         int j = 0;
-        for(int i =1; i< n-1; i++){
+        for(int i =1; i< n; i++){
             if((groups[i] != groups[i-1]) ){
                 ans.add("" + words[i]);
                 
             }
             
         }
-
-        if(groups[n-2] != groups[n-1]) ans.add(words[n-1]);
         return ans;
     }
 }
