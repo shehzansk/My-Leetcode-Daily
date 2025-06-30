@@ -1,25 +1,27 @@
 class Solution {
     public int findLHS(int[] nums) {
 
-        int max = 0;
-        int n = nums.length;
-        Arrays.sort(nums);
+        int left = 0;
+        int right = 1;
+        Arrays.sort(nums); 
+        int maxLength = 0;
 
-        int low = 0;
+        while(right<nums.length){
+            int difference = nums[right] - nums[left];
 
-        for(int i =1;i<n;i++){
-            int diff =  nums[i] - nums[low];
-            while (nums[i] - nums[low] > 1) {
-                low++;
+            if(difference < 1) {
+                right++;
+                continue;
             }
 
-            if (nums[i] - nums[low] == 1) {
-                max = Math.max(max, i - low + 1);
+            if(difference == 1) {
+                maxLength = Math.max(maxLength, right-left+1);
+                right++;
             }
-            
+            else{
+                left++;
+            }
         }
-
-        return max;
-        
+        return maxLength;
     }
 }
