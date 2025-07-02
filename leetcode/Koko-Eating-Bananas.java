@@ -27,7 +27,7 @@ class Solution {
             int mid = low + (high-low)/2;
 
             if((int)calcualte(piles, mid) <= h){
-                ans = mid;
+                // ans = mid;
                 high = mid-1;
             }
             else{
@@ -35,7 +35,7 @@ class Solution {
             }
         }
 
-        return ans;
+        return low;
 
          
     }
